@@ -4,6 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Platform](https://img.shields.io/badge/platform-Tampermonkey%20%7C%20Violentmonkey-orange)
+[![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-安装-green.svg)](https://greasyfork.org/zh-CN/scripts/607061)
 
 ---
 
@@ -20,10 +21,17 @@
 
 ## 安装
 
-1. 装 [Tampermonkey](https://www.tampermonkey.net/)（或 Violentmonkey）
-2. 打开 [`tencent-docs-copy-unlock.user.js`](./tencent-docs-copy-unlock.user.js)，点 **Raw**
-3. Tampermonkey 会弹出安装页 → 安装
-4. **刷新**已经打开的腾讯文档表格页面（脚本必须抢在页面脚本之前运行，不刷新不生效）
+先装 [Tampermonkey](https://www.tampermonkey.net/)（或 Violentmonkey），然后二选一：
+
+**① Greasy Fork（推荐，能自动更新）**
+
+<https://greasyfork.org/zh-CN/scripts/607061>
+
+**② 直接从本仓库装**
+
+打开 [`tencent-docs-copy-unlock.user.js`](./tencent-docs-copy-unlock.user.js)，点 **Raw**，Tampermonkey 会弹安装页。
+
+装完 **刷新**已经打开的腾讯文档表格页面（脚本必须抢在页面脚本之前运行，不刷新不生效）。
 
 ## 用法
 
@@ -99,6 +107,16 @@
 - 大表（几万单元格）拼 HTML 会比较慢，`⌘C` 后可能卡一下
 - 对齐枚举（`1 左 / 2 中 / 4 右`）是逆向经验值，`3`（常规）不输出，个别表格的对齐可能不准
 - 只处理 `text/plain` + `text/html`，不生成 `application/x-rtf`，某些只认 RTF 的富文本编辑器会退化成纯文本
+
+## 更新发布流程
+
+Greasy Fork 会接管脚本头里的 `@downloadURL` / `@updateURL`（指向 `update.greasyfork.org`），所以已安装用户是从 Greasy Fork 拿更新，不是从本仓库。
+
+发新版本时：
+
+1. 改 `tencent-docs-copy-unlock.user.js`，把 `@version` 加一位
+2. 更新 `CHANGELOG.md`，提交并推送本仓库
+3. 到 <https://greasyfork.org/zh-CN/scripts/607061/versions/new> 粘贴新代码发布
 
 ## 开发
 
